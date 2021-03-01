@@ -6,6 +6,8 @@
   const name: Text = 'ellie';
   const address: Text = 'korea';
   type Num = number;
+
+  // 밑에 타입같은 경우 key, value도 동일하게 적용해야 불평을 안합니다.
   type Student = {
     name: string;
     age: number;
@@ -17,6 +19,7 @@
 
   /**
    * String Literal Types
+   * Union 타입과 연관성이 있습니다.
    */
   type Name = 'name';
   let ellieName: Name;
