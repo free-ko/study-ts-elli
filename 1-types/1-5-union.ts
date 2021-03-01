@@ -6,11 +6,12 @@
   function move(direction: Direction) {
     console.log(direction);
   }
-  move('down');
+  move('down');    // move('')인자를 입력 할 때에 type Direction에 설정한 값들만 입력 할 수 있다고 보여줍니다. 또한 다른 값들은 인자로 넣을 수 없습니다.
 
   type TileSize = 8 | 16 | 32;
   const tile: TileSize = 16;
 
+  // Union 타입 예시
   // function: login -> success, fail ⏱
   type SuccessState = {
     response: {
