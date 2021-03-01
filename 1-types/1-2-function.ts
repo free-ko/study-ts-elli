@@ -20,6 +20,9 @@
   }
 
   // TypeScript ✨
+  // id는 string으로 많이 사용 됩니다.
+	// Promise 결과 값이 number이기 때문에
+	// 함수의 return 타입이 Promise<number>입니다.
   function fetchNum(id: string): Promise<number> {
     // code ...
     // code ...
