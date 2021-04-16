@@ -1,19 +1,17 @@
-export class ImageComponent {
+import { BaseComponent } from './../../component.js';
+export class ImageComponent extends BaseComponent<HTMLElement>{
 
-    private element: HTMLElement;
 
     constructor(title: string, url: string) {
-        const template = document.createElement('template');
-        template.innerHTML = ` 
+        // super함수를 통해 부모의 constructor함수를 호출 합니다.
+        super(` 
             <section class="image">
                 <div class="image__holder">
                     <img class="image__thumbnail">
                     <p class="image__title"></p>
                 </div>
             </section>
-        `;
-
-        this.element = template.content.firstElementChild! as HTMLElement;
+        `)
 
         const imageElement = this.element.querySelector('.image__thumbnail')! as HTMLImageElement;
         imageElement.src = url;
@@ -24,8 +22,5 @@ export class ImageComponent {
     }
 
 
-    attachTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
-        parent.insertAdjacentElement(position, this.element);
-    }
-}
+
 
