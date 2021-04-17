@@ -1,3 +1,5 @@
+import { TodoComponent } from './components/page/item/todo.js';
+import { NoteComponent } from './components/page/item/note.js';
 import { ImageComponent } from './components/page/item/image.js';
 import { PageComponet } from './components/page/page.js';
 
@@ -6,10 +8,16 @@ class App {
 
     constructor(appRoot: HTMLElement ) {
         this. page = new PageComponet();
-        this.page.attachTo(appRoot)
+        this.page.attachTo(appRoot);
 
         const image = new ImageComponent('Image Title', 'https://picsum.photos/600/300');
-        image.attachTo(appRoot, 'beforeend')
+        image.attachTo(appRoot, 'beforeend');
+
+        const note = new NoteComponent('Note Title', 'Note Body');
+        note.attachTo(appRoot, 'beforeend');
+
+        const todo = new TodoComponent('Todo Title', 'Todo Item');
+        todo.attachTo(appRoot, 'beforeend');
     }
 }
 
