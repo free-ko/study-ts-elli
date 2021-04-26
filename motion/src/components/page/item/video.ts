@@ -28,9 +28,8 @@ export class VideoComponent extends BaseComponent<HTMLElement> {
 
   // Output URL
   // https://www.youtube.com/embed/uviU-WPqKng
-
-  // 정규표현식 Regex(개발자라면 필수적으로 알아야하는 내용)
   private convertToEmbeddedURL(url: string): string {
+    // 정규표현식 Regex(개발자라면 필수적으로 알아야하는 내용)
     const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:(?:youtube.com\/(?:(?:watch\?v=)|(?:embed\/))([a-zA-Z0-9-]{11}))|(?:youtu.be\/([a-zA-Z0-9-]{11})))/;
     const match = url.match(regExp);
 

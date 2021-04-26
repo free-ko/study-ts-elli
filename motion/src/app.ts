@@ -1,28 +1,35 @@
-import { VideoComponent } from './components/page/item/video.js';
-import { TodoComponent } from './components/page/item/todo.js';
-import { NoteComponent } from './components/page/item/note.js';
-import { ImageComponent } from './components/page/item/image.js';
-import { PageComponet } from './components/page/page.js';
+import { VideoComponent } from "./components/page/item/video.js";
+import { TodoComponent } from "./components/page/item/todo.js";
+import { NoteComponent } from "./components/page/item/note.js";
+import { ImageComponent } from "./components/page/item/image.js";
+import { Composable, PageComponet } from "./components/page/page.js";
+import { Component } from "./components/component.js";
 
 class App {
-    private readonly page: PageComponet
+  private readonly page: Component & Composable;
 
-    constructor(appRoot: HTMLElement ) {
-        this. page = new PageComponet();
-        this.page.attachTo(appRoot);
+  constructor(appRoot: HTMLElement) {
+    this.page = new PageComponet();
+    this.page.attachTo(appRoot);
 
-        const image = new ImageComponent('Image Title', 'https://picsum.photos/600/300');
-        image.attachTo(appRoot, 'beforeend');
+    const image = new ImageComponent(
+      "Image Title",
+      "https://picsum.photos/600/300"
+    );
+    this.page.addChild(image);
 
-        const video = new VideoComponent('Video Title', "https://www.youtube.com/embed/uviU-WPqKng");
-        video.attachTo(appRoot, 'beforeend');
+    const video = new VideoComponent(
+      "Video Title",
+      "https://www.youtube.com/embed/uviU-WPqKng"
+    );
+    this.page.addChild(video);
 
-        const note = new NoteComponent('Note Title', 'Note Body');
-        note.attachTo(appRoot, 'beforeend');
+    const note = new NoteComponent("Note Title", "Note Body");
+    this.page.addChild(note);
 
-        const todo = new TodoComponent('Todo Title', 'Todo Item');
-        todo.attachTo(appRoot, 'beforeend');
-    }
+    const todo = new TodoComponent("Todo Title", "Todo Item");
+    this.page.addChild(todo);
+  }
 }
 
-new App(document.querySelector('.document')! as HTMLElement);
+new App(document.querySelector(".document")! as HTMLElement);
